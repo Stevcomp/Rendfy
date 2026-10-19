@@ -1,0 +1,287 @@
+/*========== VARIÁVEIS ==========*/
+:root {
+    --azul: #007bff;
+    --cinza-claro: #aaaaaa;
+    --preto1: #121212;
+    --cinza: #1e1e1e;
+    --branco: #ffffff;
+    --vermelho: #f44336;
+    --verde: #10bd2d;
+}
+
+/*========== CONFIGURAÇÕES GERAIS ==========*/
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--preto1);
+    color: var(--branco);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+/*========== HEADER ==========*/
+.main-header {
+    background-color: var(--cinza);
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 3px solid var(--azul);
+    display: flex;
+    justify-content: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area h1 { font-size: 28px; font-weight: 800; }
+.logo-area h2 { font-size: 16px; color: var(--cinza-claro); font-weight: 400; }
+
+.btn-voltar {
+    color: var(--branco);
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.05);
+    transition: background 0.2s;
+}
+
+.btn-voltar:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/*========== CONTENT ==========*/
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+}
+
+/*========== CONTAINER PRINCIPAL ==========*/
+.alterar-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: var(--cinza);
+    padding: 35px 40px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2d2d2d;
+}
+
+/*========== CABEÇALHO ==========*/
+.alterar-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.alterar-avatar {
+    font-size: 40px;
+    color: var(--azul);
+    background-color: #2d2d2d;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+}
+
+.alterar-titulo {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 6px;
+}
+
+.alterar-subtitulo {
+    font-size: 13px;
+    color: var(--cinza-claro);
+}
+
+/*========== ALERTAS ==========*/
+.alerta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.alerta-erro {
+    background-color: rgba(244, 67, 54, 0.12);
+    color: var(--vermelho);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.alerta-sucesso {
+    background-color: rgba(16, 189, 45, 0.12);
+    color: var(--verde);
+    border: 1px solid rgba(16, 189, 45, 0.3);
+}
+
+/*========== FORMULÁRIO ==========*/
+.form-alterar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-grupo label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cinza-claro);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.campo-obs {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 11px;
+    color: var(--cinza-claro);
+}
+
+.form-grupo input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #121212;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: var(--branco);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-grupo input:focus {
+    border-color: var(--azul);
+}
+
+/*========== CAMPO DE SENHA COM OLHO ==========*/
+.input-senha-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-senha-wrapper input {
+    padding-right: 48px;
+}
+
+.btn-olho {
+    position: absolute;
+    right: 14px;
+    background: none;
+    border: none;
+    color: var(--cinza-claro);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.btn-olho:hover {
+    color: var(--branco);
+}
+
+/*========== SEPARADOR ==========*/
+.separador {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--cinza-claro);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 4px 0;
+}
+
+.separador::before,
+.separador::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #333;
+}
+
+/*========== BOTÕES ==========*/
+.botoes-acao {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-salvar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--azul);
+    color: var(--branco);
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-salvar:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.btn-cancelar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #2a2a2a;
+    color: var(--cinza-claro);
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-cancelar:hover {
+    background-color: #3a3a3a;
+    color: var(--branco);
+}
+
+/*========== RESPONSIVIDADE ==========*/
+@media (max-width: 600px) {
+    .alterar-container {
+        padding: 25px 20px;
+    }
+    .botoes-acao {
+        flex-direction: column;
+    }
+}

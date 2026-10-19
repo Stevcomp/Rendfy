@@ -1,0 +1,279 @@
+/*========== VARIÁVEIS ==========*/
+:root {
+    --azul: #007bff;
+    --cinza-claro: #aaaaaa;
+    --preto1: #121212;
+    --cinza: #1e1e1e;
+    --branco: #ffffff;
+    --vermelho: #f44336;
+    --verde: #10bd2d;
+    --amarelo: #ffc107;
+}
+
+/*========== CONFIGURAÇÕES GERAIS ==========*/
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--preto1);
+    color: var(--branco);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+/*========== HEADER ==========*/
+.main-header {
+    background-color: var(--cinza);
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 3px solid var(--azul);
+    display: flex;
+    justify-content: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area h1 { font-size: 28px; font-weight: 800; }
+.logo-area h2 { font-size: 16px; color: var(--cinza-claro); font-weight: 400; }
+
+.btn-voltar {
+    color: var(--branco);
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.05);
+    transition: background 0.2s;
+}
+
+.btn-voltar:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/*========== CONTENT ==========*/
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+}
+
+/*========== CONTAINER DO PERFIL ==========*/
+.perfil-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: var(--cinza);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2d2d2d;
+}
+
+/*========== CABEÇALHO DO PERFIL ==========*/
+.perfil-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Container circular do Avatar */
+.perfil-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    background-color: #2d2d2d;
+    border: 2px solid var(--azul);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilização da Imagem física quando enviada */
+.perfil-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Estilização do Ícone padrão de usuário (caso não tenha foto) */
+.perfil-avatar i {
+    font-size: 45px;
+    color: var(--azul, #3498db);
+}
+
+/* Esconde o input de arquivo original do navegador por estética */
+#form-foto input[type="file"] {
+    display: none;
+}
+
+/* Botão de "Alterar Foto" que ativa o explorador de arquivos */
+.btn-upload-foto {
+    display: inline-block;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #3d3d3d;
+    transition: background-color 0.2s, border-color 0.2s;
+    margin-top: 5px;
+}
+
+/* Efeito ao passar o mouse no botão de Alterar Foto */
+.btn-upload-foto:hover {
+    background-color: #3d3d3d;
+    border-color: var(--azul);
+}
+
+/* Ícone de câmera dentro do botão */
+.btn-upload-foto i {
+    margin-right: 5px;
+}
+
+.perfil-nome {
+    color: var(--branco);
+    margin: 0;
+    font-size: 22px;
+}
+
+.perfil-membro {
+    color: var(--cinza-claro);
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/*========== GRUPOS DE INFORMAÇÃO ==========*/
+.perfil-info-grupo {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #2d2d2d;
+    padding-bottom: 10px;
+}
+
+.perfil-label {
+    font-size: 12px;
+    color: var(--cinza-claro);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.perfil-valor {
+    font-size: 18px;
+    color: var(--branco);
+    font-weight: bold;
+}
+
+.perfil-senha {
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: var(--cinza-claro);
+}
+
+/*========== BOTÕES ==========*/
+.btn-alterar-dados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: var(--azul);
+    color: var(--branco);
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-alterar-dados:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.btn-voltar-painel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: #2d2d2d;
+    color: var(--branco);
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.btn-voltar-painel:hover {
+    background-color: #3d3d3d;
+}
+
+/*========== BOTÃO SAIR DA CONTA ==========*/
+.btn-sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 12px;
+    border: 1px solid rgba(255, 193, 7, 0.25);
+    transition: background 0.2s, transform 0.1s;
+}
+ 
+.btn-sair:hover {
+    background-color: rgba(255, 193, 7, 0.2);
+    transform: translateY(-1px);
+}
+ 
+/*========== BOTÃO EXCLUIR CONTA ==========*/
+.btn-excluir-conta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(244, 67, 54, 0.08);
+    color: #f44336;
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 12px;
+    border: 1px solid rgba(244, 67, 54, 0.25);
+    transition: background 0.2s, transform 0.1s;
+}
+ 
+.btn-excluir-conta:hover {
+    background-color: rgba(244, 67, 54, 0.18);
+    transform: translateY(-1px);
+}
