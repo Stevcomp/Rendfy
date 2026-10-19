@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendify | Calculadora de Rendimento - Criar Login</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/png" href="./Imagens/Icone.png">
 </head>
 
-<body class="page-register">
+<body>
 
-    <?php include __DIR__ . '/../partials/Header.php' ?>
+    <?php include 'Header.php' ?>
     <!-- Inclui o cabeçalho reutilizável do sistema -->
 
     <?php
@@ -31,7 +32,7 @@
         <div class="box">
             <h1>Crie sua Conta Para Acessar Nosso Sistema</h1>
 
-            <form method="POST" action="../../app/controllers/RecebeNovoCadastro_cliente.php" autocomplete="off">
+            <form method="POST" action="RecebeNovoCadastro_cliente.php" autocomplete="off">
                 <!-- Envia os dados do cadastro para o backend -->
 
                 <input type="text" placeholder="Nome Completo" name="nome_cliente" required>

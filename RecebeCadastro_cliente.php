@@ -3,7 +3,7 @@
 session_start();
 
 // Importa as operações do banco de dados (que agora também trazem a conexão embutida)
-require_once __DIR__ . '/../models/crud.php';
+require_once 'crud.php';
 
 // Avalia se a requisição atual foi enviada utilizando o método seguro POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Valida se as credenciais obrigatórias de identificação não foram enviadas em branco
     if (empty($cpf) || empty($senha)) {
         // Redireciona o fluxo para a página inicial com o parâmetro indicativo de falha
-        header("Location: ../../public/pages/Index.php?erro=1");
+        header("Location: Index.php?erro=1");
         exit;
     }
 
@@ -31,17 +31,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nome'] = $usuario['nome'];
 
         // Redireciona o usuário validado diretamente para o painel de monitoramento de ativos
-        header("Location: ../../public/pages/Dashboard.php");
+        header("Location: Dashboard.php");
         exit;
     }
 
     // Redireciona para o login sinalizando erro caso a senha ou o CPF estejam incorretos
-    header("Location: ../../public/pages/Index.php?erro=1");
+    header("Location: Index.php?erro=1");
     exit;
 
     // Bloco de escape caso o script receba uma requisição direta fora do método esperado
 } else {
     // Redireciona o navegador de volta à tela inicial de login por segurança
-    header("Location: ../../public/pages/Index.php");
+    header("Location: Index.php");
     exit;
 }

@@ -1,50 +1,59 @@
-# Rendify
+# Rendify 💹
 
-Sistema web para gerenciar uma carteira de investimentos, cadastrar ativos e acompanhar rendimentos. Desenvolvido com PHP, MySQL, HTML e CSS.
+O **Rendify** é um sistema web responsivo e moderno desenvolvido para o gerenciamento de carteiras de investimentos e cálculo automatizado de rendimentos de ativos financeiros (como Ações e Fundos Imobiliários). O sistema conta com uma interface otimizada em *Dark Mode*, controle de autenticação de usuários, relatórios financeiros de dividendos e atualização de fotos de perfil.
 
-## Funcionalidades
+## 🚀 Funcionalidades
 
-- Cadastro e autenticação de clientes.
-- Cadastro, edição, listagem e remoção de ativos.
-- Painel da carteira e resumo financeiro.
-- Perfil do cliente e envio de foto.
+- **Autenticação Segura:** Sistema de login e criação de contas com senhas criptografadas em hash.
+- **Gestão de Ativos (CRUD):** Cadastro, leitura, edição e exclusão de papéis financeiros (Ações, FIIs, etc.).
+- **Painel Financeiro Geral:** Monitoramento do valor total investido, soma absoluta de proventos recebidos no mês e cálculo automático da rentabilidade da carteira.
+- **Upload de Perfil:** Upload dinâmico e seguro de imagens de avatar para os clientes.
 
-## Estrutura do projeto
+## 📁 Estrutura do Projeto
 
-```text
-Rendify/
-├── app/
-│   ├── config/conexao.php       # Conexão PHP com o MySQL
-│   ├── controllers/             # Processamento de formulários e ações
-│   ├── models/crud.php          # Operações de leitura e gravação
-│   └── views/DY_calculo.php     # Trecho PHP reutilizado pelas páginas
-├── database/schema.sql          # Referência ilustrativa para o repositório
-├── public/
-│   ├── assets/css/style.css     # Estilos consolidados
-│   ├── pages/                   # Telas do sistema
-│   ├── partials/Header.php      # Cabeçalho compartilhado
-│   └── uploads/                 # Fotos de perfil
-└── index.php                    # Entrada e redirecionamento para o login
-```
+```bash
+├── Index.php                  # Tela de Login e ponto de entrada do sistema
+├── Header.php                 # Cabeçalho global unificado do sistema
+├── CriarCadastro_cliente.php  # Formulário de criação de novas contas
+├── Perfil_cliente.php         # Área do investidor com avatar e informações pessoais
+├── Editar_cliente.php         # Formulário de alteração de dados do perfil
+├── Dashboard.php              # Painel principal de controle e listagem de ativos
+├── Detalhes_financeiros.php   # Relatórios estatísticos e composição da carteira
+├── DY_calculo.php             # Sistema do calculo do DY mensal para cada ativo 
+├── crud.php                   # Funções centrais de persistência de dados (Banco de Dados)
+├── RecebeCadastro_cliente.php # Processamento de login
+├── RecebeNovoCadastro_cliente.php # Lógica de inserção de novos perfis
+├── RecebeEdicao_cliente.php   # Processamento de atualizações do usuário
+├── RecebeCadastro_ativo.php   # Lógica de inserção de novos ativos
+├── RecebeEdicao_ativo.php     # Lógica de modificação de ativos existentes
+├── RecebeExclusao_ativo.php   # Lógica de remoção de ativos da carteira
+├── RecebeFoto_cliente.php     # Motor de upload e tratamento de imagens de perfil
+├── Excluir_cliente.php        # Lógica de exclusão total da conta
+├── Logout_cliente.php         # Encerramento seguro da sessão ativa
+├── Rendify.sql                # Banco de Dados completo do sistema da Rendify
+├── style1.css                 # Identidade visual da tela de login
+├── style4.css                 # Identidade visual do perfil do usuário
+├── style5.css                 # Identidade visual do formulário de edição
+├── style7.css                 # Identidade visual dos relatórios financeiros
+└── uploads/                   # Diretório de armazenamento das fotos de perfil
 
-Os redirecionamentos são feitos diretamente nas páginas e nos controladores usando `header("Location: ...")`. Não há um arquivo `bootstrap.php`.
+⚙️ Como Executar o Projeto
+Certifique-se de ter um ambiente de servidor local instalado (ex: XAMPP, WAMP ou Laragon) com suporte a PHP e MySQL.
 
-## Requisitos
+Clone este repositório para a pasta de arquivos públicos do seu servidor (htdocs ou www):
 
-- PHP com PDO MySQL habilitado.
-- MySQL ou MariaDB.
-- Apache, por exemplo o incluído no XAMPP.
+Bash
+git clone [https://github.com/seu-usuario/rendify-calculadora.git](https://github.com/seu-usuario/rendify-calculadora.git)
+Importe a estrutura do banco de dados MySQL contida no arquivo do projeto utilizando o phpMyAdmin ou ferramenta similar.
 
-## Executar com XAMPP
+Inicie o Apache e o MySQL no painel de controle do seu servidor local.
 
-1. Coloque a pasta `Rendify` em `htdocs`.
-2. Inicie o Apache e o MySQL.
-3. No phpMyAdmin, selecione o banco usado pelo sistema, atualmente `rendify_calc_invest`.
-4. Confira host, porta, nome do banco, usuário e senha em `app/config/conexao.php`.
-5. Acesse `http://localhost/Rendify/`.
+Abra o seu navegador de preferência e digite:
 
-A aplicação PHP conecta diretamente ao MySQL usando PDO. O phpMyAdmin é a interface para administrar esse banco. O arquivo `database/schema.sql` serve apenas como referência no repositório e não é carregado pela aplicação.
+Plaintext
+http://localhost/Rendify
+🎨 Interface Visual
+O projeto utiliza um tema Dark Mode moderno, focado na sofisticação e redução da fadiga visual para o investidor durante o acompanhamento diário do mercado financeiro, contando com marcadores visuais dinâmicos para indicação de dividend yield e performance mensal.
 
-## Organização visual
-
-As páginas usam a folha única `public/assets/css/style.css`. As regras de cada tela são delimitadas pela classe correspondente no elemento `body`. As fotos enviadas ficam em `public/uploads`.
+👨‍💻 Desenvolvedor
+Desenvolvido por Felipe Stevanato Ribeiro 📞 Entre em contato: +55 11 97756-9063

@@ -1,6 +1,6 @@
 <?php
 // Garante que a conexão com o banco seja importada junto com o CRUD
-require_once __DIR__ . '/../config/conexao.php';
+require_once 'conexao.php';
 
 // Funções CRUD genéricas reutilizáveis para qualquer tabela
 

@@ -1,0 +1,258 @@
+/*========== VARIÁVEIS ==========*/
+:root {
+    --azul: #007bff;
+    --cinza-claro: #aaaaaa;
+    --preto1: #121212;
+    --cinza: #1e1e1e;
+    --branco: #ffffff;
+    --vermelho: #f44336;
+    --verde: #10bd2d;
+    --roxo: #9c27b0;
+    --amarelo: #ffc107;
+}
+
+/*========== CONFIGURAÇÕES GERAIS ==========*/
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--preto1);
+    color: var(--branco);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+
+/*========== HEADER ==========*/
+.main-header {
+    background-color: var(--cinza);
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 3px solid var(--azul);
+    display: flex;
+    justify-content: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area h1 { font-size: 28px; font-weight: 800; }
+.logo-area h2 { font-size: 15px; color: var(--cinza-claro); font-weight: 400; }
+
+.btn-voltar {
+    color: var(--branco);
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.05);
+    transition: background 0.2s;
+}
+
+.btn-voltar:hover { background-color: rgba(255,255,255,0.1); }
+
+/*========== CONTENT ==========*/
+.content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/*========== CARD RENTABILIDADE (DESTAQUE) ==========*/
+.card-rentabilidade {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 1px solid rgba(0, 123, 255, 0.3);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+}
+
+.rentabilidade-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cinza-claro);
+    margin-bottom: 10px;
+}
+
+.rentabilidade-valor {
+    font-size: 64px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 12px;
+}
+
+.rentabilidade-valor.positivo { color: var(--verde); }
+.rentabilidade-valor.negativo { color: var(--vermelho); }
+
+.rentabilidade-frase {
+    font-size: 16px;
+    color: var(--cinza-claro);
+}
+
+.rentabilidade-frase strong { color: var(--branco); }
+
+/*========== BLOCOS DE RESUMO ==========*/
+.blocos-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.bloco-card {
+    background-color: var(--cinza);
+    border: 1px solid #2a2a2a;
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.bloco-card:hover {
+    border-color: #444;
+    transform: translateY(-2px);
+}
+
+.bloco-icone {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.icone-azul  { background-color: rgba(0, 123, 255, 0.15); color: var(--azul); }
+.icone-verde { background-color: rgba(16, 189, 45, 0.15);  color: var(--verde); }
+.icone-roxo  { background-color: rgba(156, 39, 176, 0.15); color: var(--roxo); }
+
+.bloco-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.bloco-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cinza-claro);
+}
+
+.bloco-valor {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--branco);
+}
+
+.bloco-sub {
+    font-size: 11px;
+    color: var(--cinza-claro);
+}
+
+/*========== CORES UTILITÁRIAS ==========*/
+.valor-verde   { color: var(--verde) !important; }
+.valor-vermelho{ color: var(--vermelho) !important; }
+
+/*========== TABELA ==========*/
+.tabela-container {
+    background-color: var(--cinza);
+    border: 1px solid #2a2a2a;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.tabela-titulo {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--branco);
+}
+
+.tabela-wrapper {
+    overflow-x: auto;
+}
+
+.tabela-ativos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.tabela-ativos th {
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cinza-claro);
+    padding: 10px 14px;
+    border-bottom: 1px solid #333;
+}
+
+.tabela-ativos td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #222;
+    vertical-align: middle;
+}
+
+.tabela-ativos tbody tr:hover td {
+    background-color: #222;
+}
+
+.td-nome {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.badge-categoria {
+    background-color: rgba(0, 123, 255, 0.12);
+    color: var(--azul);
+    border: 1px solid rgba(0, 123, 255, 0.25);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.badge-tipo {
+    background-color: rgba(156, 39, 176, 0.12);
+    color: var(--roxo);
+    border: 1px solid rgba(156, 39, 176, 0.25);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.tr-total td {
+    font-weight: 800;
+    font-size: 13px;
+    border-top: 2px solid #444;
+    border-bottom: none;
+    padding-top: 14px;
+}
+
+/*========== RESPONSIVIDADE ==========*/
+@media (max-width: 768px) {
+    .blocos-resumo { grid-template-columns: 1fr; }
+    .rentabilidade-valor { font-size: 44px; }
+    .card-rentabilidade { padding: 28px 20px; }
+}
