@@ -4,18 +4,18 @@ session_start();
 
 // Bloqueia o acesso se o usuário não estiver autenticado e redireciona para o login
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-    header("Location: Index.php");
+    header("Location: ../../public/pages/Index.php");
     exit;
 }
 
 // Garante que o script só processe requisições enviadas pelo método POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: Perfil_cliente.php");
+    header("Location: ../../public/pages/Perfil_cliente.php");
     exit;
 }
 
 // Importa as operações do banco de dados (que agora também trazem a conexão embutida)
-require_once 'crud.php';
+require_once __DIR__ . '/../models/crud.php';
 
 // Captura e forma o ID do usuário conectado com segurança
 $usuario_id = intval($_SESSION['usuario_id']);
@@ -55,7 +55,7 @@ try {
 
         // Bloqueia o processamento e retorna erro caso os dados já existam no banco
         if ($duplicado) {
-            header("Location: Editar_cliente.php?erro=cpf_contato_existente");
+            header("Location: ../../public/pages/Editar_cliente.php?erro=cpf_contato_existente");
             exit;
         }
     }
@@ -74,13 +74,13 @@ try {
 
         // Valida se a senha atual digitada corresponde ao hash cadastrado no banco de dados
         if (!password_verify($senha_atual, $usuarioAtual['senha'])) {
-            header("Location: Editar_cliente.php?erro=senha_incorreta");
+            header("Location: ../../public/pages/Editar_cliente.php?erro=senha_incorreta");
             exit;
         }
 
         // Verifica se a nova senha coincide perfeitamente com o campo de confirmação
         if ($nova_senha !== $confirma) {
-            header("Location: Editar_cliente.php?erro=senhas_diferentes");
+            header("Location: ../../public/pages/Editar_cliente.php?erro=senhas_diferentes");
             exit;
         }
 
@@ -100,11 +100,11 @@ try {
     }
 
     // Redireciona o usuário para a tela de edição com a flag de sucesso ativada na URL
-    header("Location: Editar_cliente.php?sucesso=1");
+    header("Location: ../../public/pages/Editar_cliente.php?sucesso=1");
     exit;
 
     // Captura falhas de comunicação ou restrições geradas pelo banco de dados
 } catch (PDOException $e) {
-    header("Location: Editar_cliente.php?erro=banco");
+    header("Location: ../../public/pages/Editar_cliente.php?erro=banco");
     exit;
 }
