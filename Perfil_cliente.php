@@ -9,7 +9,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 }
 
 // Importa as operações do banco de dados (que agora também trazem a conexão embutida)
-require_once 'crud.php';
+require_once __DIR__ . '/backend/database/crud.php';
 
 // Captura e forma o ID do usuário conectado com segurança
 $usuario_id = intval($_SESSION['usuario_id']);
@@ -19,7 +19,7 @@ $dadosPerfil = read($pdo, 'usuarios', "id = ?", [$usuario_id]);
 
 // Força a desconexão se o registro do perfil do usuário atual não for localizado
 if (!$dadosPerfil) {
-    header("Location: Logout_cliente.php");
+    header("Location: backend/Logout_cliente.php");
     exit;
 }
 
@@ -33,11 +33,11 @@ $senhaMascarada = '••••••••';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendify | Meu Perfil</title>
-    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="frontend/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="page-style4">
 
     <header class="main-header">
         <div class="header-container">
@@ -67,7 +67,7 @@ $senhaMascarada = '••••••••';
                     ?>
                 </div>
 
-                <form action="RecebeFoto_cliente.php" method="POST" enctype="multipart/form-data" id="form-foto">
+                <form action="backend/RecebeFoto_cliente.php" method="POST" enctype="multipart/form-data" id="form-foto">
                     <label for="input-foto" class="btn-upload-foto">
                         <i class="fas fa-camera"></i> Alterar Foto
                     </label>
@@ -120,12 +120,12 @@ $senhaMascarada = '••••••••';
                 <i class="fas fa-chart-line"></i> Ir para Meus Investimentos
             </a>
 
-            <a href="Logout_cliente.php" class="btn-sair">
+            <a href="backend/Logout_cliente.php" class="btn-sair">
                 <i class="fas fa-sign-out-alt"></i> Sair da Conta
             </a>
 
             <a href="#" class="btn-excluir-conta"
-                onclick="if(confirm('Tem certeza que deseja excluir sua conta? Esta ação é irreversível e todos os seus dados serão apagados.')) window.location.href='Excluir_cliente.php';">
+                onclick="if(confirm('Tem certeza que deseja excluir sua conta? Esta ação é irreversível e todos os seus dados serão apagados.')) window.location.href='backend/Excluir_cliente.php';">
                 <i class="fas fa-trash-alt"></i> Excluir Minha Conta Permanentemente
             </a>
 

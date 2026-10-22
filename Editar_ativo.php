@@ -9,7 +9,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 }
 
 // Importa as operações do banco de dados (que agora também trazem a conexão embutida)
-require_once 'crud.php';
+require_once __DIR__ . '/backend/database/crud.php';
 
 // Captura e formata o ID do ativo enviado por parâmetro e o ID do usuário conectado
 $id = intval($_GET['id'] ?? 0);
@@ -40,18 +40,18 @@ $tipos_fundo = ['Papel', 'Tijolo', 'FOF', 'Agro', 'Híbrido', 'Desenvolvimento',
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendify | Editar Ativo</title>
-    <link rel="stylesheet" href="style6.css">
+    <link rel="stylesheet" href="frontend/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="page-style6">
     <header class="main-header">
         <div class="header-container">
             <div class="logo-area">
                 <h1>Rendify 💹</h1>
                 <p>Bem-vindo, <strong><?php echo htmlspecialchars($_SESSION['nome']); ?></strong></p>
             </div>
-            <a href="Logout_cliente.php" class="btn-logout">
+            <a href="backend/Logout_cliente.php" class="btn-logout">
                 <i class="fas fa-sign-out-alt"></i> Sair
             </a>
         </div>
@@ -63,7 +63,7 @@ $tipos_fundo = ['Papel', 'Tijolo', 'FOF', 'Agro', 'Híbrido', 'Desenvolvimento',
             <p class="subtitulo">Editando: <strong><?php echo strtoupper(htmlspecialchars($ativo['nome'])); ?></strong>
             </p>
 
-            <form action="RecebeEdicao_ativo.php" method="POST" class="form-editar">
+            <form action="backend/RecebeEdicao_ativo.php" method="POST" class="form-editar">
                 <input type="hidden" name="id" value="<?php echo $ativo['id']; ?>">
 
                 <div>

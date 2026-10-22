@@ -3,7 +3,7 @@
 session_start();
 
 // Importa as operações do banco de dados (que agora também trazem a conexão embutida)
-require_once 'crud.php';
+require_once __DIR__ . '/database/crud.php';
 
 // Garante que o script só processe requisições enviadas pelo método POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Valida se algum dos parâmetros obrigatórios de cadastro foi enviado em branco
     if (empty($nome) || empty($contato) || empty($cpf) || empty($senha)) {
-        header("Location: CriarCadastro_cliente.php?erro=campos_vazios");
+        header("Location: ../CriarCadastro_cliente.php?erro=campos_vazios");
         exit;
     }
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Bloqueia o cadastro e retorna erro caso os dados já constem no banco de dados
         if ($usuarioExiste) {
-            header("Location: CriarCadastro_cliente.php?erro=cpf_contato_existente");
+            header("Location: ../CriarCadastro_cliente.php?erro=cpf_contato_existente");
             exit;
         }
 
@@ -48,17 +48,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         create($pdo, 'usuarios', $dadosUsuario);
 
         // Redireciona para a tela inicial disparando o gatilho de sucesso na URL
-        header("Location: Index.php?sucesso=1");
+        header("Location: ../Index.php?sucesso=1");
         exit;
 
         // Captura falhas de comunicação ou restrições geradas pelo banco de dados
     } catch (PDOException $e) {
-        header("Location: CriarCadastro_cliente.php?erro=banco");
+        header("Location: ../CriarCadastro_cliente.php?erro=banco");
         exit;
     }
 
     // Bloco de escape caso o script receba uma requisição direta fora do método esperado
 } else {
-    header("Location: CriarCadastro_cliente.php");
+    header("Location: ../CriarCadastro_cliente.php");
     exit;
 }

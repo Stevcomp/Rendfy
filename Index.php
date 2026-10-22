@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendify | Calculadora de Rendimento - Login</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="frontend/css/app.css">
     <link rel="icon" type="image/png" href="./Imagens/Icone.png">
 </head>
 
-<body>
+<body class="page-style1">
 
     <?php
     // Mapeia e define flags booleanas seguras avaliando os parâmetros de feedback recebidos via URL
@@ -52,7 +52,7 @@
         <div class="box">
             <h1>Faça Seu Login Para Acessar Nosso Sistema</h1>
 
-            <form method="POST" action="RecebeCadastro_cliente.php" autocomplete="off">
+            <form method="POST" action="backend/RecebeCadastro_cliente.php" autocomplete="off">
                 <input type="text" placeholder="CPF (apenas números)" name="cpf" maxlength="11"
                     oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
                 <input type="password" placeholder="Senha" name="senha" required>

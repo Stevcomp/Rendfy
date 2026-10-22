@@ -9,7 +9,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 }
 
 // Importa as operações do banco de dados
-require_once 'crud.php';
+require_once __DIR__ . '/backend/database/crud.php';
 
 // Captura e forma o ID do usuário conectado com segurança
 $usuario_id = intval($_SESSION['usuario_id']);
@@ -39,11 +39,11 @@ $rentabilidadeMensal = ($totalInvestido > 0)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendify | Detalhes Financeiros</title>
-    <link rel="stylesheet" href="style7.css">
+    <link rel="stylesheet" href="frontend/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="page-style7">
 
     <header class="main-header">
         <div class="header-container">

@@ -4,7 +4,7 @@ session_start();
 
 // Bloqueia o acesso se o usuário não estiver autenticado e redireciona para o login
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-    header("Location: Index.php");
+    header("Location: ../Index.php");
     exit;
 }
 
@@ -12,7 +12,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Importa as operações do banco de dados (que agora também trazem a conexão embutida)
-    require_once 'crud.php';
+    require_once __DIR__ . '/database/crud.php';
 
     // Captura e forma o ID do usuário conectado com segurança
     $usuario_id = intval($_SESSION['usuario_id']);
@@ -48,5 +48,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Redireciona o fluxo do navegador de volta para o painel principal de investimentos
-header("Location: Dashboard.php");
+header("Location: ../Dashboard.php");
 exit;

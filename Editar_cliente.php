@@ -9,7 +9,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 }
 
 // Importa as operações do banco de dados (que agora também trazem a conexão embutida)
-require_once 'crud.php';
+require_once __DIR__ . '/backend/database/crud.php';
 
 // Captura e forma o ID do usuário conectado com segurança
 $usuario_id = intval($_SESSION['usuario_id']);
@@ -18,7 +18,7 @@ $dadosPerfil = read($pdo, 'usuarios', "id = ?", [$usuario_id]);
 
 // Força a desconexão se o registro do perfil do usuário atual não for localizado
 if (!$dadosPerfil) {
-    header("Location: Logout_cliente.php");
+    header("Location: backend/Logout_cliente.php");
     exit;
 }
 ?>
@@ -29,11 +29,11 @@ if (!$dadosPerfil) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendify | Alterar Dados</title>
-    <link rel="stylesheet" href="style5.css">
+    <link rel="stylesheet" href="frontend/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="page-style5">
 
     <header class="main-header">
         <div class="header-container">
@@ -80,7 +80,7 @@ if (!$dadosPerfil) {
                 </div>
             <?php endif; ?>
 
-            <form action="RecebeEdicao_cliente.php" method="POST" class="form-alterar">
+            <form action="backend/RecebeEdicao_cliente.php" method="POST" class="form-alterar">
 
                 <div class="form-grupo">
                     <label>Nome Completo</label>

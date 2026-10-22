@@ -21,7 +21,7 @@ if ($horaAtual >= 5 && $horaAtual < 12) {
 }
 
 // ── Carrega o arquivo de funções CRUD (readAll, create, update, delete) ──
-require_once 'crud.php';
+require_once __DIR__ . '/backend/database/crud.php';
 
 // ── Recupera o ID do usuário logado e o filtro de categoria da URL ──
 $usuario_id = intval($_SESSION['usuario_id']);
@@ -88,11 +88,11 @@ foreach ($todosAtivos as $item) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendify | Calculadora de Rendimento - Dashboard</title>
-    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="frontend/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="page-style3">
 
     <header class="main-header">
         <div class="header-container">
@@ -109,7 +109,7 @@ foreach ($todosAtivos as $item) {
     <main class="content-wrapper">
         <section class="cadastro-container">
             <h2><i class="fas fa-plus-circle"></i> Cadastrar Novo Ativo</h2>
-            <form action="RecebeCadastro_ativo.php" method="POST" class="form-cadastro">
+            <form action="backend/RecebeCadastro_ativo.php" method="POST" class="form-cadastro">
                 <div class="input-grupo">
                     <input type="text" name="nome" placeholder="Nome do ativo" required>
                 </div>
@@ -173,7 +173,7 @@ foreach ($todosAtivos as $item) {
                                     title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="RecebeExclusao_ativo.php?id=<?php echo $ativo['id']; ?>"
+                                <a href="backend/RecebeExclusao_ativo.php?id=<?php echo $ativo['id']; ?>"
                                     class="btn-acao-edicao btn-excluir" title="Excluir">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
